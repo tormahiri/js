@@ -1,0 +1,81 @@
+<style type="text/css">
+	
+h2{
+	direction: rtl;
+}
+center{
+	direction: rtl;
+}
+	#content{
+
+		direction: rtl;
+	}
+	pre{
+
+
+		padding: 8px 0 12px 20px;
+border-left: 4px solid #566D82;
+margin-bottom: 1.25em;
+background: #0F192A;
+color:white;
+}
+	}
+</style>
+
+<body>
+<h2>مەشغۇلات بەلگىسىtypeof</h2>
+
+<p id="content">
+typeof مەشغۇلات بەلگىسى ۋە instanceof مەشغۇلات بەلگىسى javascript لايىھەسىنىڭ ئەڭ چوڭ كەمچىلىكلىرى بولۇشى مومكىن ،ھەمدە بۇلار پۈتۈنلەر بۇزۇلاي دەپ قالدى،گەرچە instanceof مەشغۇلات بەلگىسنىڭ ئىشلىتىش چەكلىمىسى بولىسىمۇ،بىراق typeof نىڭ يەنىلا ئەمەلى كارغا يارايدىغان جايلىرىمۇ بار
+</br>
+javascript تىپلار جەدۋىلى
+</p>
+<pre>
+Value               Class      Type
+-------------------------------------
+"foo"               String     string
+new String("foo")   String     object
+1.2                 Number     number
+new Number(1.2)     Number     object
+true                Boolean    boolean
+new Boolean(true)   Boolean    object
+new Date()          Date       object
+new Error()         Error      object
+[1,2,3]             Array      object
+new Array(1, 2, 3)  Array      object
+new Function("")    Function   function
+/abc/g              RegExp     object (function in Nitro/V8)
+new RegExp("meow")  RegExp     object (function in Nitro/V8)
+{}                  Object     object
+new Object()        Object     object
+</pre>
+<p id="content">
+
+ئۈستىدكى جەدۋەلدىكى تىپلار 
+typeof مەشغۇلاتى قايتۇرىدىغان قىممەتلەرنى كۆرسىتىدىغان بولۇپ،تىپلار ھەرقانداق خالىغان بىر تىپ بولسا بولىۋىرىدۇ،بىراق بۇ مۇقىم،
+Class ئوبيكىتنىڭ ئىچكى [class]خاسلىق قىممىتنى كۆرىستىدۇ،
+class نىڭ قىممىتىنى قايتۇرۇش ئۈچۈن Object.prototype نىڭ toString() مىتودىنى ئىشلىتىشكە بولىدۇ
+</br>
+ئوبيكىتنىڭ تۈرى
+</br>
+javascript تۈر[[class]]قىممىتىگە كىرىش ئۈچۈن،Object.prototype.toString مىتودىنى ئىشلىتش ئۇسۇلىنى بەرگەن
+</p>
+<pre>
+function is(type, obj) { var clas = Object.prototype.toString.call(obj).slice(8, -1); return obj !== undefined && obj !== null && clas === type; } is('String', 'test'); // true is('String', new String('test')); // true
+</pre>
+<p id="content">
+ئۈستىدىكى مىسالدا،Object.prototype.toStrin مۇشۇ [[class]] قىممىتى قايتۇرۇلدىغان ئوبيكىتقا بەلگىلەنگەن (مەركەزلەشكەن)this نىڭ قىممىتى بىلەن چاقىرىلغان
+</br>
+ئىنىقلانمىغان مىقدارنى تەكشۈرۈش
+</p>
+<pre>
+
+typeof foo !== 'undefined'
+</pre>
+<p id="content">
+بۇ مىسالدا foo ھەقىقى ئىنىقلانغانمۇ يوق تەكشۈرىدۇ،پەقەت ئۇنى قوللانما قىلىش ReferenceError خاتالىقىنى كەلتۈرۈپ چىقىرىدۇ،بۇ typeof نىڭ بىردىن بىر پايدىلىق تەرىپى بولۇشى مومكىن.
+خۇلاسە
+ئوبيكىت تىپىنى تەكشۈرۈشتە تەۋسىيە قىلىنىدىغان ئۇسۇل Object.prototype.toString مىتودىنى قوللىنىش،چۈنكى بۇ مۇشۇنداق قىلىشنىڭ ئەڭ ياخشى ئۇسۇلى،ئۈستىدكى تىپلار جەدۋىلدە كۆرسىتىلگەندەك ،typeof قايتۇرىدىغان بەزى تىپلار javascript نىڭ ئىشلىتىش قائىدىسدە ئىنىقلانمىغان،شۇڭا بۇنى ئەمەلى قوللانغاندا پەرىق يۈزبىرىدۇ،مەيلى قانداقلا تىپنى تەكشۈرۈش بولمىسۇن typeof نى قوللىنىشتىن ساقلىنىش كىرەك!
+</p>
+<center>{{tormahiri}}</center>
+</body>

@@ -1,0 +1,272 @@
+<style type="text/css">
+	
+center{
+	direction: rtl;
+}
+	#content{
+
+		direction: rtl;
+	}
+	h2{
+		direction: rtl;
+	}
+	pre{
+
+
+		padding: 8px 0 12px 20px;
+border-left: 4px solid #566D82;
+margin-bottom: 1.25em;
+background: #0F192A;
+color:white;
+}
+aside{
+background: #1f8dd6;
+padding: 0.3em 1em;
+border-radius: 3px;
+color: #fff;
+}
+	}
+</style>
+
+<body>
+	<h2>ئوبيكىت(object)</h2>
+<p id="content">
+	
+
+javascript دا ھەممە نەرسە ئوبيكىت،پەقەت Null ۋە undefined نى ھىسابقا ئالمىغاندا</p>
+
+<p id="code">
+	
+
+	<pre>
+		
+false.toString(); // 'false'
+[1, 2, 3].toString(); // '1,2,3'
+
+function Foo(){}
+Foo.bar = 1;
+Foo.bar; // 1
+	</pre>
+</p>
+<p id="content">
+	
+
+javascript دىكى دائىملىق بىر مەسىلە يەنى خاتالىق سان تىپى ئوبىيكىت شەكىلدە قوللىنىلمايدۇ،چۈنكى بۇ جاۋا سىكرىپتىنىڭ ئاجىزلىقى بولۇپ ،ساننى لەيلىمە سان float دەپ ئانالىز قىلىدۇ
+<p id="code">
+	<pre>
+2.toString(); // raises SyntaxError
+	</pre>
+</p>
+<p id="content">
+	
+	بۇيەردە قىسمەن ساننى ئويبكىت شەكىلدە ئىشلىتىش ئۇسۇلىلىرىمۇ بار
+
+</p>
+
+<p id="code">
+	
+
+	<pre>
+		
+
+2..toString(); // the second point is correctly recognized
+2 .toString(); // note the space left to the dot
+(2).toString(); // 2 is evaluated first
+	</pre>
+</p>
+<p id="content">
+	
+object سانلىق مەلۇمات تىپىغا ئوخشاش
+js دىكى ئوبيكىتمۇ hashmapsئوخشاش قوللىنلىدۇ،بۇيەردىكى hashmap دىگىنىم java توپلىمىدا قوللىنىدىغان hashmap نى كۆرسىتىدۇ.ئوبيكىت ئاساسلىقى خاسلىق ۋە مىتودتىن تەشكىل تاپقان بولۇپ قىممەتكە مەركەزلىشىدۇ
+بىز ئوبيكىتنى {}بەلگىسى ئارقىلىق قۇرالايمىز،بۇيڭى ئوبيكىت Objecct.prototype قا ۋارىسلىق قىلىدۇ ۋە ئۆزىنىڭ ئىنىقلانغان خاسلىقى بولمايدۇ
+</p>
+	<pre>
+		
+var foo = {}; // a new empty object
+
+// a new object with a 'test' property with value 12
+var bar = {test: 12}; 
+	</pre>
+</p>
+<p id="content">
+	
+ئوبيكىتنىڭ خاسلىقىغا  كىرىش
+	</br>
+	ئوبيكىتنىڭ خاسلىقىغا كىرىدىغان ئىككى خىل ئۇسۇل بار،بىرى چىكىت بىلەن،يەنى بىرى چاسا تىرناق بىلەن
+</p>
+<pre>
+	
+var foo = {name: 'kitten'}
+foo.name; // kitten
+foo['name']; // kitten
+
+var get = 'name';
+foo[get]; // kitten
+
+foo.1234; // SyntaxError
+foo['1234']; // works
+</pre>
+<p id="content">
+خاسلىققا كىرىشتىكى چىكىت بىلەن چاسا تىرناقنىڭ بىردىن بىر پەرقى شۇكى چاسا تىرناق بىلەن خاسلىققا كىرگەندە خاسلىقنىڭ ئىسمىنى يىزىشقا ۋە دىينامىكىلىق ھالدا خاسلىقنىڭ قىممىتىنى تەڭشەشكە بولىدۇ!
+</br>
+
+
+</p>
+<p id="content">
+	ئويبكىتنىڭ خاسلىقىنى ئۆچۈرۈش
+	</br>
+	جاۋا سىكىرىپىتتا ئوبيكىتنىڭ خاسلىقىنى delete مەشغۇلات بەلگىسى بىلەن ئۆچۈرۈشكە بولىدۇ،بۇ مەشغۇلات بەلگىسى خاسلىقتىكى قىممەتنى Null ياكى Undefined گە ئۆزگەرتىدۇ،ۋە قىممەتنى ئۆچۈرىدۇ،لىكىن ئاچقۇچلۇق سۆزنى ئەمەس
+<pre>
+
+	var obj = {
+    bar: 1,
+    foo: 2,
+    baz: 3
+};
+obj.bar = undefined;
+obj.foo = null;
+delete obj.baz;
+
+for(var i in obj) {
+    if (obj.hasOwnProperty(i)) {
+        console.log(i, '' + obj[i]);
+    }
+}
+</pre>
+
+</p>
+<p id="content">
+	ئۈستىدىكى كود bar نى undefined كە foo نى Null قىلىپ ئۇزىتىدۇ،پەقەت بۇيەردە baz نىڭ قىممىتىلا يوق،چۈنكى baz ئۆچۈرۈلگەن
+</p>
+<p id="content">
+	
+	ئوبيكىت ئاددى خەت شەكلى String ئوخشاش ھەرىپ بەلگىلەر بىلەن خاسلىق قورالايدۇ
+</p>
+<pre>
+	
+	var test = {
+    'case': 'I am a keyword, so I must be notated as a string',
+    delete: 'I am a keyword, so me too' // raises SyntaxError
+};
+</pre>
+<p id="content">
+	يۇقارقى ئويبكىتتىكى ئىككى خاسلىققا test.case ئارقىلىق كىرەلەيسىز،بەلكىم بەزى تور كۆرگۈلەر delete نى خاسلىق قىپ بىرىشنى قوللىماسلىقى مومكىن
+</p>
+<p id="content">
+	
+	Prototype (ئەندىزە)
+	</br>
+javasccript نىڭ باشقا تىللارغا ئوخشاش object-oriented  يەنى ئوبيكىتقا يۈزلەنگەن ئىقتىدارى يوق،بەلكىم بۇ Javascript نىڭ بىردىن بىر ئاجىزلىقى بولۇشى مومكىن لىكىن Javascript نىڭ Prototypal ۋارسلىق قىلىش ئىقتىدارى بار،بىز بۇنىڭ بىلەن ئوبيكىتقا يۈزلەنگەن پىروگىرامما ئىقتىدارىنى ئەمەلگە ئاشۇرالايمىز،نۆۋەتتە javascript نىڭ ecmascript6 ئۆلچىمى ئەمىللەشمەكتە كەلگۈسى بىر يىلغا يەتمىگەن ئەھۋال ئاستىدا جااۋا سىكرىپتتىا چوڭ ئىقتىدارلار ھازىرلىنىشى بەرھەق،مەقسەتكە كەلسەك javascript نىڭ ۋارسلىق قىلىش ئىقتىدارى كەڭ قوللىنىدىغان ئىقتىدار
+</p>
+<pre>
+	
+	function Foo() {
+    this.value = 42;
+}
+Foo.prototype = {
+    method: function() {}
+};
+
+function Bar() {}
+
+// Set Bar's prototype to a new instance of Foo
+Bar.prototype = new Foo();
+Bar.prototype.foo = 'Hello World';
+
+// Make sure to list Bar as the actual constructor
+Bar.prototype.constructor = Bar;
+
+var test = new Bar(); // create a new bar instance
+
+// The resulting prototype chain
+test [instance of Bar]
+    Bar.prototype [instance of Foo]
+        { foo: 'Hello World' }
+        Foo.prototype
+            { method: ... }
+            Object.prototype
+                { toString: ... /* etc. */ }
+</pre>
+<p id="content">
+	يۇقارقى كودتا test ئوبيكىتى Bar.prototype ۋە  Foo.prototype غا ۋارسلىق قىلىپ foo دا ئىنىقلانغان فۇنكىسيە مىتودىغا كىرەلەيدۇ
+</p>
+<p id="content">
+	خاسلىق ئىزدەش
+	</br>
+ئوبيكىتنىڭ خاسلىقغىا كىرگەن ۋاقىتتا javascript تەلەپ قىلىنغان نام ئىچىدكى خاسلىقنى تاپقانغاقەدەر ئەسلى تىپ زەنجىرىنى  نى كىسىپ ئۆتىدۇ،ئەگەر ئەسلى تىپ زەنجىرىى Object.prototypeغا يىتىپ ،بەلگىلەنگەن خاسلىقنى تاپالمىسا undefined قىممىتنى قايتۇرىدۇ
+</p>
+<pre>
+	
+	function Foo() {}
+Foo.prototype = 1; // no effect
+</pre>
+<p id="content">
+	
+	ئەسلى تىپ خاسلىقى
+	</br>
+ئەسلى تىپ خاسلىقى تىل تەرىپىدىن  prototype chain ئەسلى تىپ زەنجىرى قۇرۇشقا ئىششلتىلگەن ۋاقىتتا بۇنىڭغا ھەرقانداق قىممەتنى تەقسىملەش مومكىن،لىكىن javascript نىڭ ئىپتدائى تىپى string,number,boolean,float لارنى ئەسلى تىپ قىلىپ تەقسىملىگەندە رەت قىلىنىشى مومكىن
+
+</p>
+<p id="content">
+	ئىجرا بولۇشى
+	</br>
+ئەسلى تىپ زەنجىرىدە خاسلىق ئىزدىگەن ۋاقىتتا ،ئىزدەش ۋاقتى javascript كودلىرىنىڭ ئىجرا بولۇش سۈرئىتىگە بىسىم ئەپ كىلىدۇ،ئىھتىمال بۇ كودنىڭ ئىجرا بولۇش سۈرئىىگە تەسىر كۆرسىتىدىغان ھالقىلىق مەسىلە بولۇشى مومكىن دىمەكچىProptype chain (ئەسلى تىپ)،بۇنىڭغا قوشۇپ ئىيتقاندا ئەسلى مەۋجۇت بولمىغان خاسلىققا كىرمەكچى بولغىنىمىزدا javascript بارلىق ئەسلى تىپ زەنجىرىدىن خاسلىقنى تىپىش ئۈچۈن كىسىپ ئۆتىدۇ،ھەمدە ئوبيكىتنىڭ ھەر بىر خاسلىقى ئۈستىدىن دەۋرىيلەش ئىلىپ بارغاندا ،ئەسلى تىپ زەنجىرى prototype chain مۇ تەكشۈرۈلىدۇ
+
+	</br>
+	خۇلاسە
+	</br>
+ھەرقانداق مۇرەككەپ كود يىزىشتىن بۇرۇن javascript نىڭ Prototypal زەنجىرىنى چۈشىنىش ناھايتى مۇھىم،ھەمدە كودلرىڭىزدا prototype chain ئەسلى تىپ زەنجىرىنىڭ ئۇزۇنلىقىغا دىققە قىلىشڭىز كىرەك،چۈنكى بۇ سىزنىڭ يازغان كودلىرڭىزنىڭ ئىجرا بولۇش سۈرئىتىگە تەىسر كۆرسىتىدىغان بىردىن-بىر ئامىل بولۇشى مومكىن
+</p>
+<p id="content">
+	
+	hasownProperty(ئۆزىنڭ خاسلىقى)تەرجىمە قىلىۋەتتىم بۇنىمۇ ھى ھى
+	</br>
+قايسى ئوبيكىتنىڭ ئۆزىدە قايسى خاسلىق ئىنىقلانغان بۇنى تەكشۈرۈ ئۈچۈن hasownProperty  نى ئىشلىتىمىز،hasOwnPropertyمىتودىنى ئىشلىتىش ناھايتى موھىم يەنى ھەممە ئوبيكىت Object.prototype قا ۋارسلىق قىلىدۇ
+hasownProperty جاۋاسىكرىپىتتىكى خاسلىق بىلەن مەشغۇلات قىلىشتا قوللىنىلدىغان ،ئوبيكىتنىڭ Prototype chain نى كىسىپ ئۆتمەيدىغان بىردىن بىر نەرسە
+</p>
+<pre>
+	Object.prototype.bar = 1;
+var foo = {goo: undefined};
+
+foo.bar; // 1
+'bar' in foo; // true
+
+foo.hasOwnProperty('bar'); // false
+foo.hasOwnProperty('goo'); // true
+</pre>
+<p id="content">
+پەقەت hasownProperty مىتودى توغرا ۋە كۆزلىگەندەك نەتىجە بىرىدۇ،ئويبكىتنىڭ خاسلىقىنى تەكشۈرۈشتە بۇ مىتود بەكلا مۇھىم،بۇيەردە يەنى javascript دا ئوبيىكىتنىڭ ئۆزىىدە ئىنىقلانمىغان خاسلىقىتىن قۇتۇلۇشنىڭ ھىچقانداق چارىسى يوق،ئىھتىمال ئۇنىڭ Prototype chain سىدا بولۇشى مومكىن	
+
+</p>
+
+<p id="content">
+for in Loop(ئوبيكىتنىڭ خاسلىقىنى دەۋرىيلەش)
+</br>
+پەقەت in مەشغۇلات بەلگىسىگە ئوخشاش،for in loop ئوبيكىتنىڭ خاسلىقى ئۈستىدىن دەۋرىيلەش ئىلىپ بارغاندا ئەسلى تىپ زەنجىرىنى ئاختۇرىدۇ	
+
+</p>
+<pre>
+
+Object.prototype.bar = 1;
+
+var foo = {moo: 2};
+for(var i in foo) {
+    console.log(i); // prints both bar and moo
+}
+</pre>
+<p id="content">
+	Loop بەدىنى يەنى ئىچىدە ئوبيكىتنىڭ زۆرۈر بولمىغان خاسلىقىنى سۈزۈپ ئىلىۋىتىش كىرەك بولسا Object.prototype نىڭ hasownProperty مىتودى قوللىنلىدۇ
+	</br>
+	hasOwnProperty نى ئىشلىتىپ سۈزۈش
+</p>
+<pre>
+for(var i in foo) {
+ if (foo.hasOwnProperty(i)) {
+ console.log(i);
+    }
+}
+</pre>
+<aside class="us">
+ <center>{{tormahiri}}</center>
+</aside>
+</body>

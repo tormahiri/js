@@ -1,0 +1,107 @@
+<!doctype html>
+<html ng-app="website">
+<title>تورماھىرى js قواللانمىسى</title>
+<head>
+	<meta charset="utf-8">
+
+ <script type="text/javascript" src="javascripts/angular.js.js"></script>
+ <script type="text/javascript" src=""></script>
+ <script type="text/javascript" src="javascripts/website.js"></script>
+ <script type="text/javascript" src="javascripts/jquery.js"></script>
+ <script type="text/javascript" src="javascripts/fbase.js"></script>
+ <!-- <link rel="Stylesheet" type="text/css" href="http://dl.dropbox.com/u/3260327/shared.css" /> -->
+ <script type="text/javascript">
+// tormahiri
+$(document).ready(function(){
+ $(document).bind("contextmenu",function(e){
+    e.preventDefault();
+  });
+});
+//ugyhur2014
+var uqur = new Firebase('https://clickme.firebaseio.com/');
+uqur.child('location').on('value', function(snapshot) {
+
+  $("a").click(function(){
+    var count=snapshot.val();
+    uqur.set({
+
+      location:++count
+    });
+  })
+
+});
+
+
+</script>
+<link rel="stylesheet" href="stylesheets/pure.css">
+<style type="text/css">
+@font-face {
+  font-family: 'ukij tuz tom';
+  src: url ('stylesheets/UKIJTuT.ttf')
+  local('stylesheets/UKIJTuT.ttf') format('truetype'); 
+
+}
+*{
+  font-family: ukij tuz tom;
+}
+h2{
+
+  direction: rtl;
+}
+ul>li>a{
+
+  text-decoration: none;
+
+}
+.pure-menu-heading{
+
+  text-align: right;
+}
+.tor{
+
+  width: 100px;
+  height: 100px;
+  border-radius: 150px;
+  -webkit-border-radius: 150px;
+  -moz-border-radius: 150px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+  -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+  -moz-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+  -webkit-filter: opacity(1.9);
+}
+</style>
+</head>
+<body ng-controller="MainControler">
+  <div id="tormahiri">
+    <center>
+      <h2> {{tormahiri}}</h2>
+    </center>
+
+
+  </div>
+  <div class="pure-g">
+   <div class="pure-u-4-5"><div ng-view></div>
+ </div>
+ <div class="pure-u-1-5"><p>   
+
+  <div class="pure-menu pure-menu-open">
+    <a class="pure-menu-heading">مۇندەرىجە</a>
+
+    <ul> <li><a href="#" ng-click="setRoute('home')">تونوشتۇرۇش</a></li>
+      <li><a href="" ng-click="setRoute('object')">ئوبىيكىت</a></li>
+      <li><a href="" ng-click="setRoute('funkisya')">فۇنكىسيە</a></li>
+      <li><a href="" ng-click="setRoute('array')">سانلار گۇرۇپپىسى</a></li>
+
+       <li><a href="" ng-click="setRoute('tiplar')">تىپلار</a></li>
+       <li><a href="" ng-click="setRoute('typeof')">  مەشغۇلاتىtypeof</a></li>
+    </ul>
+
+    </ul>
+  </div>
+
+</p>
+
+
+
+</body>
+</html>
